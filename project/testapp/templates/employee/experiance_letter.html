@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience Letter</title>
+  <style>
+table, th, td {
+  border: 1px solid red;
+  border-collapse: collapse;
+}
+@page title_template { margin: 5cm; }
+    @page regular_template { margin: 2cm; }
+
+  p {
+  font: "liberation serif";
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+  
+*{
+  box-sizing: border-box;
+  color: black;
+}
+
+.box{
+  float: right;
+  width: 50%;
+  padding: 5px;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 6%;
+   width: 100%;
+   background-color: rgb(224, 228, 231);
+   color: white;
+   text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="container-fluid">
+  <div class="img-thumbnail">
+    <img class="img " style="width: 22%;margin-top: 2px;" img src="testapp/static/testapp/images/logo.png">
+  </div>
+  <strong>
+
+    {{emp.formatDate}}
+
+
+    <!-- <tr style="background:#CCC">
+    <th>emp_id</th>
+    <th>emp_id</th>
+    <th>resig_accept</th>
+    <th>resig_receive</th>
+  </tr> -->
+   
+  
+  <!-- <?php
+  // print_r($data);
+  // echo $data[0]->emp_id;
+  //      die();
+  $i=1;
+  // foreach($data as $row)
+  // {
+  // echo "<tr>";
+  // echo "<td>".$i."</td>";
+  // echo "<td>".$row->emp_id."</td>";
+  // echo "<td>".$row->resig_accept."</td>";
+  // echo "<td>".$row->resig_receive."</td>";
+  // echo "</tr>";
+  // $i;
+  // } -->
+
+
+   <!-- ?> -->
+
+
+    <h3 style="font-size:25px; text-align:center;"><U>TO WHOMSOEVER IT MAY CONCERN</U></h3>
+  </strong>
+
+  <p>This is to certify that  <b>{{emp.firstname}} {{emp.lastname}}</b> had worked with Wayzon Technology Services Private Limited as a {{emp.position_id}} from  {{emp.joining_date}}  to {{emp.joining_date}} During his stay with us, his performance was good and to the satisfaction of the management. He
+has left the organization on his own accord<br>Wayzon Technology Services Pvt. Ltd. wishes him all success in his future endeavours.For Wayzon Technology Services Pvt. Ltd.</p>
+
+  <div class="img-thumbnail" >
+    <img class="img " style="width: 16%;margin-top: 7px;" src="testapp/static/testapp/images/logo_sign.png">
+
+  </div>
+
+
+
+  <div class="clearfixaa">
+    <div class="box1">
+      <strong>
+        <p>Madhuri Turup</p>
+        <p>Human Resource</p>
+      </strong>
+    </div>
+    <div class="box">
+      <strong>
+        <p>sign:__________________</p>
+        <p>Name:__________________</p>
+      </strong>
+    </div>
+  </div>
+
+
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  
+
+  <div class="footer" style="text-align: center;margin-top: 20px;color: rgb(104, 95, 95);font-size: 11;">
+    <p>8 & 9, Ground Floor, R Square, Mumbai Pune Bypass Rd, Motiram Nagar,Warje, <br>Pune, Maharashtra-411 058
+      020-66204320</p>
+  </div>
+  <div class="footer">
+    <div class="footer">
+      <img class="img " style="width: 100%; height: 75px;" src="testapp/static/testapp/images/footer.png">
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+
+{% extends 'testapp/index.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container" style="width: 65%; height: 70%">
+    <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#61aedd">
+      <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Employee Information</h3></div><br>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <div class="row">
+          <div class="col-md-6">
+              
+              <div class="form-group mb-3">
+                  <label for="employee_id" class="control-label">Employee ID</label>
+                  {% render_field form.employee_id class="form-control" placeholder="employee_id" style="text-transform:uppercase" %}   
+                  
+              </div>
+              <div class="form-group mb-3">
+                  <label for="firstname" class="control-label">First Name</label>
+                  {% render_field form.firstname class="form-control" placeholder="firstname" style="text-transform:uppercase" %}   
+                  
+              </div>
+              <div class="form-group mb-3">
+                  <label for="middlename" class="control-label">Middle Name</label>
+                  {% render_field form.middlename class="form-control" placeholder="middlename" style="text-transform:uppercase" %}  
+                  
+              </div>
+              <div class="form-group mb-3">
+                  <label for="lastname" class="control-label">Last Name</label>
+                  {% render_field form.lastname class="form-control" placeholder="lastname" style="text-transform:uppercase" %}  
+              </div>
+              
+
+              <div class="form-group mb-3">
+                  <label for="dob" class="control-label">Birthday</label>
+                  {% render_field form.dob class="form-control" placeholder="dob" type="date" %}    
+              </div>
+              <div class="form-group mb-3">
+                  <label for="email" class="control-label">Email</label>
+                  {% render_field form.email class="form-control" placeholder="email" type="email" %}    
+              </div>
+
+              <div class="form-group mb-3">
+                  <label for="email" class="control-label">PAN NO</label>
+                  {% render_field form.pan_no class="form-control" placeholder="pan_no" type="text" %} 
+              </div>
+              <div class="form-group mb-3">
+                  <label for="contact" class="control-label">Contact #</label>
+                  {% render_field form.contact class="form-control" placeholder="contact" type="contact" %} 
+              </div>
+              
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+                  <label for="address" class="control-label">Address</label>
+                  {% render_field form.address class="form-control" placeholder="address" type="textarea" %} 
+              </div>
+            <div class="form-group mb-3">
+              <label for="company_name" class="control-label">Company</label>
+            {% render_field form.company_name class="form-control" placeholder="company_name" %}
+          </div>
+          
+              <div class="form-group mb-3">
+                  <label for="department_name" class="control-label">Department</label>
+                  {% render_field form.department_name class="form-control" placeholder="department_name" %} 
+              </div>
+              <div class="form-group mb-3">
+                  <label for="position_id" class="control-label">Position</label>
+                  {% render_field form.position_id class="form-control" placeholder="position_id" %} 
+              </div>
+              <div class="form-group mb-3">
+                  <label for="offer_date" class="control-label">Offer-Date</label>
+                  {% render_field form.offer_date class="form-control" placeholder="offer_date" type="date" %}
+              </div>
+              <div class="form-group mb-3">
+                  <label for="joining_date" class="control-label">joining-Date</label>
+                  {% render_field form.joining_date class="form-control" placeholder="joining_date" type="date" %}
+              </div>
+              <div class="form-group mb-3">
+                  <label for="package" class="control-label">package</label>
+                  {% render_field form.package class="form-control" placeholder="package" type="float" %}
+              </div>
+        <button type="submit" value="Update" class="btn btn-primary" href="{% url 'employee' %}">UPDATE</button>
+    </form>
+    </div>
+    </div>
+
+{% endblock %}
+
+

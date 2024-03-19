@@ -1,0 +1,67 @@
+
+
+{% extends 'testapp/index.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">COMPANY</h3></div><br>
+<form method="POST">
+     {% csrf_token %}
+     <center><div class="container">
+    <div class="mb-3">
+      <label for="cname" class="form-label"><b>company Name</b></label>
+      {% render_field form.cname class="form-control" placeholder="Company Name" id="company_name" type="name" style="text-transform:uppercase" %} 
+      <span style="color: red;"></span>
+    <span id="msg"></span>      
+    </div>
+    <div class="mb-3">
+      <label for="c_logo" class="form-label"><b>company logo</b></label>
+      {% render_field form.c_logo class="form-control" placeholder="c_logo" type="file" %}       
+    </div>
+    <div class="mb-3">
+      <label for="hr_sign" class="form-label"><b>Hr sign</b></label>
+      {% render_field form.hr_sign class="form-control" placeholder="hr_sign" type="file" %}       
+    </div>
+    
+    <button type="submit" value="Update" class="btn btn-primary" href="{% url 'company' %}">Update</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}
+
+
+{% block footer_scripts %}
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  $("#company_name").change(function () {
+    var cname = $(this).val();
+
+    $.ajax({
+      url: '/validate_company/',
+      data: {
+        'cname': cname
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          $("#msg").css({"color":"red"});
+               $("#msg").html("This company already exists");
+               $('#company_name').focus();
+               $("#company_name").val(""); 
+        }
+        else
+               {
+               $("#msg").css({"color":"green"});
+               $("#msg").html("Congrates company available !"); 
+               }
+      }
+    });
+
+  });
+</script>
+
+
+{% endblock %}

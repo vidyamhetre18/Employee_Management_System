@@ -1,0 +1,88 @@
+
+
+{% extends 'testapp/index.html' %}
+
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Add Resignation</h3></div><br>
+<form method="POST" >
+     {% csrf_token %}
+
+  
+     <center><div class="container">
+    <div class="mb-3">
+      <label for="employee_name" class="form-row errors field-cname" ><b>Employee-Name</b><span class="required">*</span></label>
+      <select name="employee_name" id="emp_id" class="form-select form-select-sm rounded-0" required>
+        <option >Please Select Employee</option>
+        {% for emp in employee %}
+        
+            <option value="{{emp.id}}">{{ emp.firstname }}</option>
+           
+        {% endfor %}
+
+    </select>
+  <div>
+        <span id="msg"></span>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="acceptence_date" class="form-label"><b>Acceptence Date</b><span class="required">*</span></label>
+      <input class="form-control" type="date" name="acceptence_date" required >     
+      
+    </div>
+    <div class="mb-3">
+      <label for="resignation_recieved" class="form-label" ><b>Resignation Recieved</b><span class="required">*</span></label>
+      <input class="form-control" type="date" name="resignation_recieved" required>     
+    </div>
+    <div class="mb-3">
+      <label for="last_working_date" class="form-label" ><b>Last Working Date</b><span class="required">*</span></label>
+      <input class="form-control" type="date" name="last_working_date" required>     
+    </div>
+    <button type="submit" class="btn btn-success" href="{% url 'emp_resignation' %}"><b>ADD</b></button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}
+
+
+
+{% block footer_scripts %}
+{{ block.super }}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  $("#emp_id").change(function () {
+    var employee_name = $(this).val();
+
+    $.ajax({
+      url: '/validate_resignation/',
+      data: {
+        'employee_name': employee_name
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          $("#msg").css({"color":"red"});
+               $("#msg").html("This employee already resigned");
+               $('#emp_id').focus();
+               $("#emp_id").val(""); 
+        }
+        else
+               {
+               $("#msg").css({"color":"green"});
+               $("#msg").html("Employee resignation available !"); 
+               }
+      }
+    });
+
+  });
+  
+</script>
+{% endblock %}
+
+
+
+

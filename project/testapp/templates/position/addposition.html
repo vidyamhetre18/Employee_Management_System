@@ -1,0 +1,59 @@
+{% extends 'testapp/index.html' %}
+
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Position</h3></div><br>
+<form method="POST" >
+     {% csrf_token %}
+     <center><div class="container">
+    <div class="mb-3">
+      <label for="positionname" class="form-label"><b>POSITION NAME</b></label>
+      <input type="positionname" class="form-control" id="positionname" name="pname" style="text-transform:uppercase" required> <span style="color: red;"></span>
+      <span id="msg"></span>    
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label"><b>DESCRIPTION</b></label>
+      <input type="descriptionname" class="form-control" id="description" name="description" style="text-transform:uppercase" required>     
+    </div>
+    <button type="submit" class="btn btn-success" href="{% url 'position' %}"><b>ADD</b></button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+        
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  $("#positionname").change(function () {
+    var pname = $(this).val();
+
+    $.ajax({
+      url: '/validate_position/',
+      data: {
+        'pname': pname
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          $("#msg").css({"color":"red"});
+               $("#msg").html("This Position already exists");
+               $('#positionname').focus();
+               $("#positionname").val(""); 
+        }
+        else
+               {
+               $("#msg").css({"color":"green"});
+               $("#msg").html("this Position is available !"); 
+               }
+      }
+    });
+
+  });
+</script>
+
+{% endblock %}

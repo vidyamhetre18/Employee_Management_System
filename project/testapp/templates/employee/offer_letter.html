@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                font-size: 14px;
+            }
+            #wrapper{
+   
+    overflow:auto;
+}
+
+#c1{
+   float:left;
+   
+}
+#c2{
+   float:right;
+   right: 4em;
+}
+
+
+
+        </style>
+        </head>
+    <body>
+      <center><div><img class="img " style="width: 22%;margin-top: 2px;" img src="testapp/static/testapp/images/logo.png"></div></center>
+        <div class="container-sm">
+ <br>
+     
+       <b>Date :{{emp.currentdate}}</b>
+<br><br>
+<center><h1><b>OFFER LETTER</b></h1></center>
+        <p><b>To,</b></p>
+        <p>Dear <b>{{emp.firstname}} {{emp.lastname}}</b></p>
+            
+        <p>We are pleased to offer you an appointment in our organization as <b>{{emp.position_id}}</b> w.e.f.  <b> {{emp.offer_date}}</b> You will be based in our Wayzon Technology Services Pvt. Ltd. Your offer has been made based on information furnished by you. However if there is a discrepancy in the copies of documents or certificates given by you as a proof of above we retain the right to review our offer of employment. Employment as per this offer is subject to your being medically fit. Your Cost to the Company (CTC) would be Rs.<b>{{emp.package}}.(
+
+          only)LPA.</b>
+     including your six month of Probation Period. The allowances, benefits and other terms and conditions of your employment will be as per Company policies as applicable from time to time. Your compensation will be reviewed in future as per Company policy.</p>
+        <p>Please sign and return duplicate copy of this letter in token of your acceptance. 
+          We congratulate you on your appointment and wish you a long and successful career with us. We are confident that your contribution will take us further in our journey towards becoming world leaders. We assure you of our support for your professional development and growth.</p><p>Should you accept our offer, you are requested to provide the Company with copies of the following
+            documents (if not provided earlier) along with 2 recent passport-sized photographs, on the date of joining</p>
+            <ul style="font-size: 13px;">
+              <li>Relieving letter issued by your most recent employer, if any</li>
+              <li>Passport (most recent)</li>
+              <li>Aadhar Card</li>
+              <li>Relevant educational certificates</li>
+              <li>Last drawn pay slip</li>
+              <li>Permanent Account Number (PAN) card</li>
+              <li>Birth certificate.</li>
+            </ul>
+            <br>
+            <p>Please treat this letter and its contents as strictly confidential and do not disclose the same to any person or entity (except to your advisors, attorneys and accountants, for seeking their advice) without the Company’s prior written consent. Your salary and benefits are confidential and you should refrain from discussing it with other employees of the Company.</p>
+            <p><b>Acceptance</b></p>
+            <p>I hereby accept the terms and conditions of this offer for employment . I confirm that I am not breaching any terms or provisions of any prior agreement or arrangement by accepting this offer. I agree to join the Company on the joining date as provided in
+            Annexure “A” of this letter.</p>
+            <p><b>Annexure A</b></p>
+            <br><p><b>Personal Particulars:</b></p>
+            <p>You will keep us informed of any change in your residential address, your family status or any other relevant particulars. You would also let us know the name and address of your legal heir/nominee.</p>
+            <p><b>Attendance:</b></p>
+            <p><b>Conflicting Employment:</b></p>
+            <p>During the term of their employment with the company, employees will not engage in any other employment, occupation, or other business activities nor will the employee engage in any other activities that conflict with the obligations to the Company.</p>
+            <p><b>Non-Disclosure Agreement (NDA):</b></p>
+             <p>Employees will sign an NDA, to protect their own and the company’s intellectual   property interests.</p>
+             <br><p><b>Probation:</b></p>
+             <p>For a new employee, the probation period is compulsory . It enables the management to   assess the new employee’s suitability for the job role undertaken.<br>
+              Unless otherwise given in writing, a newly hired employee shall be on probation for a   period of 3 months for experience employee and 6 Months for Trainee from date of  joining.<br>
+              If an employee’s performance during the probation period is found unsatisfactory,The  HR  Department can decide to extend the probation period. This will give the  employee  an  opportunity to upgrade his / her performance levels to acceptable standards.<br>
+              Leave rules differ during the probation period.</p>
+              <p><b>Working Hours:</b></p>
+              <p>The working hours of the company are 10:00 a.m. to 07:00 p.m. from Monday to   Saturday. All staff must arrive in office before the start time.<br>
+              If an employee arrives between 10:05 a.m. and 11.00 a.m., on any working day, half day  of  leave shall be deducted for Third instance of late coming in a month. (3rd late mark).<br>
+              Half day of casual leave shall be deducted if an employee arrives after 10:30 a.m. It is  the   employee’s responsibility to reach office in time and adjust as per external  circumstances. Thus issues such as delay in Trains/Bus, Traffic, Etc. would be the  responsibility of the employee.<br>
+              Half day of leave will be deducted if an employee leaves before 5.00 p.m.<br>
+              Early leaving time is after 5 PM considered by the HR Department.</p>
+              <p><b>Policy for Lunch and Other Breaks:</b></p>
+              <br><p><b>Leave:</b></p>
+              <p><b>Leave Policies – Employees on Probatio:</b></p>
+              <p>During the probation period employees are not eligible for Casual leave (CL). 
+                If leave have taken by Employee duration of the probation so it would be considered as a Leave without Pay (LWP).</p>
+                <p><b>Leave Policies for Confirmed Employees</b></p>
+                <p><b>Sick Leave: </b></p>
+                <p>The Sick leave is applicable for all from the date of joining the company, the no. of sick leave seven in a given accounting year.</p>
+                <p><b>Sick Leave: </b></p>
+                <p>The period for calculation and entitlement of leave shall be 1st January to 31st December of each year.</p>
+                <br><p><b>Casual Leave (CL): </b></p>
+                <p>Casual Leave is applicable from the date of joining the company. An employee shall be  entitled to twelve (12) working days of Casual Leave (CL) in a given accounting year.<br>
+                Company providing 4 half day in a given accounting year.<br>
+                CL should be applied in advance, except in case of extreme exigency or emergency.<br>
+                A maximum of three days of CL can be availed at a time.<br>
+                CL lapses at the end of the accounting year and cannot be encashed.<br>
+                During the probation period, CL is credited at the rate of 1 day per month.<br>
+                There is no leaves for the trainee except Sick Leaves.</p>
+                <br>
+                <p><b>Privilege Leave (PL):</b></p>
+                <p>All employees on completion of one year of service are eligible for Privilege Leave (PL) of  7 days in a year. This leave is credited at the end of each year (i.e. at the end of the leave  accounting period on 31st of December).<br>
+                After the first year of service, the PL will be credited at the end of the Leave Accounting   Year (i.e. on 31st of December). Thus for the second year of service, a pro-rata calculation  (from the date of completion of one year of service to the end of the following December) of  the second year will be credited.</p>
+                <p><b>Accumulation of Privilege Leave</b></p>
+                <p>The probation period will be included in the calculation for privileged leave.
+                The company expects all its employees to avail of the PL facility annually to rest and  recuperate. With this objective in mind, every employee must avail of at least 7 days of PL   in a year.<br>
+                For e.g. an employee joins on the 15th of June 2017. He completes one year of service on the  14th of June 2018. According to the policy the employee will be entitled to a pro-rata PL of 8  days (for the period 15-06-2017 to 31-12-2017) on completion of one year, which will be on  15-06-2018.</p>
+                <p><b>Leave Without Pay:</b></p>
+                <br><p>LWP would be approved only in exceptional cases such as leave required for extratordinary  circumstances with inadequate balaence.<br>
+                If an employee is absent for more than 3 days, without informing the HR department, the   absence would be treated as LWP. It would be recorded in the employee’s file that the   employee is absconding for that period of time.<br>
+                If the LWP period is for a continuous duration of 21 days or longer, it will be considered as a   break in service. Thus calculation of benefits will be done separately for the period before  and after the LWP.<br>
+                Privilege leave will not be calculated for the LWP period.</p>
+                <p><b>Procedure for Application</b></p>
+                <p>The employee should ensure that the relevant applications are made and approved well   before the attendance finalization process done at the end of the month failing which the   leave would be treated as LWP. It is the responsibility of the employee to ensure that the  leave has been approved before proceeding on leave.<br>
+                Before booking tickets & confirming travel arrangements for long leaves, employee should  consult with their HR. This is to avoid overlap of leave within a department when a large   number of employees might want to plan long leaves.</p>
+                <p><b>It shall be binding on the employee to inform designated personnel from the HR  Department before 11:00 a.m.</b>on the day of absence, about the availing of such leave. A  call made to any other person in the organization shall not be considered as acceptable. On   resuming duties, the employee shall be expected to fill out the leave Application and get the   approval from HR Department.
+                In case of absence, where no prior application or intimation has been made, the absence   shall be counted as Leave without Pay.<br>
+                If the leave period exceeds 15 days, approval must be taken from the directors of the   company, after the reporting manager has approved the leave.<br>
+                If a training program has been planned for an employee, every effort must be made to attend   the same. If leave is taken on the day of the training, the absence will be counted as LWP  and not as leave. This deduction is waived only in the following conditions:<br>
+                If the employee is able to produce a doctor’s medical certificate citing the reasons for  absence.<br>
+                If the employee had applied for leave before the training date was intimated.</p>
+                <br><p><b>Restrain:</b></p>
+                <p><b>Access to Information:</b></p>
+                <p>Information is available on need to know basis for specific groups and the information is  segregated to allow individual sectors information access for projects and units. Access to   this is authorized through access privileges approved by unit mentors or project mentors.   Unauthorized access or attempt at unauthorized access is strictly prohibited and any attempts   to do so will result in immediate termination of employment and legal action as deemed fit  by the company</p>
+                <p><b>Restriction on Personal Use:</b></p>
+                <p>Use of company resources for personal use is strictly restricted. This includes usage of   computer resources, information, internet service, and working time of the company for any  personal use. You will under no circumstances carry any work home unless specifically   requested by your manager. Any usage of company information for personal use will result  in immediate termination of employment without notice and/or legal action for   misdemeanour as deemed fit by the company. You may/may not be required to reimburse the   company for any losses incurred by the company on account of personal usage of company  data.</p>
+                <p><b>Security:</b></p>
+                <p>Security is an important aspect of our communication and office infrastructure.  Communication security is maintained by controlling physical access to computer system,   disabling all working stations, floppy disk drives and companywide awareness about the  need for protection of intellectual property and sensitive customer information.</p>
+                <p><b>Display of ID card is Mandatory: </b></p>
+                <p>It is mandatory to display company ID Card properly in the neck along with the tag at the  workplace all the time. It is also mandatory to wear ID Card at clients’ / customers’ /   vendors’ or any other premises, while on visit on behalf of company. </p>
+                <p><b>Penalty for not wearing Identification Card:</b></p>
+                <p>It is expected from all the employees of the company that they will proudly wear/display ID  Cards all the time. Repeated / habitual failure to wear ID Card will attract the penalty of Rs.100 on each occasion and HRD has authority to recover such penalty/s from the salaries   of employees, under intimation to concerned employee.</p>
+                <p><b>Appraisals:</b></p>
+                <p>Appraisals will be conducted on a yearly basis for the periods..<br>
+                 Promotions and increments are given at the discretion of the management.<br>
+                 Employees, who have completed a minimum of 12 months in the organization on the last  date of the appraisal period and are not on probation, will be eligible for increments.</p>
+                 <br><p><b>Leaving Process:</b></p>
+                 <p><b>Termination</b></p>
+                 <p>The company may at anytime discharge an employee from service or terminate his or her services by giving <b>one/two months’</b> notice or by payment of salary in lieu of such notice. No such notice is necessary if the employee is asked to leave for misconduct or morally unacceptable behaviour. The payment of notice period salary to the employee will not be applicable for the probation period.</p>
+                  <p><b>Note:</b>One month of notice period is applicable the employee who have completed probation in the same company at Wayzon.</p>
+                  <p><b>Resignation and Separation Procedure</b></p>
+                 <p>The following procedure will apply in the event of the employee’s resignation from the  company’s services:<br>
+                  Employees who wish to resign from the company’s service should submit their resignation in writing to the HR department and to the reporting manager.<br>
+                  Participate in a discussion with Reporting Manager & HR.<br>
+                  Continue services if retained<br>
+                  Discuss relieving date and notice period with the Reporting Manager if resignation is accepted. Employees must serve out their notice period on resignation from the company. The notice period applicable to an employee depends on the terms agreed to in the appointment letter. When an employee gives a notice of resignation the company is entitled to accept it with immediate effect or from any date before the expiration of the notice period. The salary paid will be up to the last date of employment.<br>
+                  Discuss and initiate the Handover process with Reporting Manager if resignation is accepted.<br>
+                  Fill in the Exit Interview Form<br>
+                  Fill in the Employee Clearance Form<br>
+                  Participate in the Exit Interview<br>
+                  Any request for leave during the notice period may be considered only for a short duration and for very pressing reasons. Such leave must have a pre-sanction of both the reporting manager and the HR department. In case an employee proceeds on leave without such sanction, it will be at the discretion of the HR department to extend the notice period by the number of days of leave or consider the leave as leave without pay.<br>
+                  At the time of leaving the employment of the Company, the employee must deliver to the Company (and not keep in his or her possession, recreate or deliver to anyone else) any and all devices, records, data, notes, reports, proposals, lists, correspondence, specifications, drawings, blueprints, sketches, materials, equipment, other documents or property, or reproductions of any aforementioned items developed by him or her pursuant to his or her employment with the Company or otherwise belonging to the Company, its successors or assigns or clients.<br>
+                  Only after completion of the all of the above formalities, will the `Experience Certificate and salary certificate, be issued by the Company.</p>
+
+        <div class="sign" style="text-align: right;">
+          <img class="img " style="width: 16%;margin-top: 7px;" src="testapp/static/testapp/images/logo_sign.png">
+        </div>
+
+        
+    <div id="wrapper">
+      <div id="c1">
+        <p>Sign:________</p>
+        <p>Name:_______</p>
+      </div>
+      <div id="c2" >
+        <p>Madhuri Turup</p>
+        <p>Human Resource</p>
+      </div></div>
+​
+  
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+      <div class="sign" style="text-align: center; font-size: 11px; color: grey;">
+          <p>8 & 9, Ground Floor, R Square, Mumbai Pune Bypass Rd, Motiram Nagar,Warje, Pune, Maharashtra-411 058 020-66204320</p>
+        </div><br>
+        <div class="footer">
+          <img class="img " style="width: 100%; height: 75px;" src="testapp/static/testapp/images/footer.png">
+        </div>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

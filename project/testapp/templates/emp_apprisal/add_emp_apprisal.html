@@ -1,0 +1,71 @@
+
+{% extends 'testapp/index.html' %}
+
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Add Apprisal</h3></div><br>
+<form method="POST" >
+     {% csrf_token %}
+
+  
+     <center><div class="container">
+    <div class="mb-3">
+        <div class="mb-3">
+            <label for="employee_name" class="form-row errors field-cname"><b>Employee-Name</b><span class="required">*</span></label>
+            <select name="employee_name" id="employee_name" class="form-select form-select-sm rounded-0" required>
+                <option >Please Select Employee</option>
+              {% for emp in employee %}
+             
+                  <option value="{{emp.id}}">{{ emp.firstname }}</option>
+                 
+              {% endfor %}
+      
+          </select>
+          </div>
+    <div class="mb-3">
+        <label for="position_id" class="control-label"><b>Position</b></label>
+        <select name="position_id" id="position_id" class="form-select form-select-sm rounded-0" required>
+           
+            <option value="1" disabled selected>Please Select Position</option>
+            
+            {% for position in positions %}
+                {% if emp_apprisal.position_id and emp_apprisal.position_id == position.id %}
+                <option value="{{ position.id }}" selected>{{ position.pname }}</option>
+                {% else %}
+                <option value="{{ position.id }}">{{ position.pname }}</option>
+                {% endif %}
+            {% endfor %}
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="salary_structure" class="control-label"><b>Salary Structure</b></label>
+        <select name="salary_structure" id="salary_structure" class="form-select form-select-sm rounded-0" required>
+            <option value="1" disabled selected>Please Select Salary Structure</option>   
+            {% for position in salary_structre %}
+                {% if emp_apprisal.salary_structure and emp_apprisal.salary_structure == position.id %}
+                <option value="{{ position.id }}" selected>{{ position.salary_structure }}</option>
+                {% else %}
+                <option value="{{ position.id }}">{{ position.salary_structure }}</option>
+                {% endif %}
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="appraisal_date" class="form-label"><b>Appraisal Date</b><span class="required">*</span></label>
+      <input class="form-control" type="date" name="appraisal_date" required>     
+    </div>
+    <div class="mb-3">
+      <label for="efective_from" class="form-label" ><b>Effective From</b><span class="required">*</span></label>
+      <input class="form-control" type="date" name="efective_from" required>     
+    </div>
+    <button type="submit" class="btn btn-success" href="{% url 'emp_apprisal' %}"><b>ADD</b></button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}

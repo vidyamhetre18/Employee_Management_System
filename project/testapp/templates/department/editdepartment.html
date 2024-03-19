@@ -1,0 +1,27 @@
+
+
+
+{% extends 'testapp/index.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Edit Department</h3></div><br>
+<form method="post">
+     {% csrf_token %}
+     <center><div class="container">
+    <div class="mb-3">
+      <label for="cname" class="form-label"><b>Department Name</b></label>
+      {% render_field form.name class="form-control" placeholder="name" style="text-transform:uppercase" %}       
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label"><b>DESCRIPTION</b></label>
+      {% render_field form.description class="form-control" placeholder="description" %}       
+    </div>
+    
+    <button type="submit" value="Update" class="btn btn-primary" href="{% url 'department' %}">UPDATE</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}

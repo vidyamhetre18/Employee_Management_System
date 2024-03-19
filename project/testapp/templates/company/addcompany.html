@@ -1,0 +1,77 @@
+
+
+{% extends 'testapp/index.html' %}
+
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">COMPANY</h3></div><br>
+<form method="POST"  action="{% url 'addcompany' %}" enctype="multipart/form-data">
+     {% csrf_token %}
+     
+     <center><div class="container">
+    <div class="mb-3">
+      <div>{% for message in messages %}
+        <p class="alert alert-success" role="alert">{{message}}</p>{% endfor %}
+      </div>
+      <label for="companyname" class="form-row errors field-cname" ><b>COMPANY</b><span class="required">*</span></label>
+      <input class="form-control"  name="cname" id="company_name" value = "" style="text-transform:uppercase" required> 
+      
+      <span style="color: red;"></span>
+    <span id="msg"></span>
+
+    </div>
+    <div class="mb-3">
+      <label for="c_logo" class="form-label" accept="images/*" ><b>COMPANY LOGO</b><span class="required">*</span></label>
+      <input class="form-control" type="datetime" name="c_logo"  required >     
+      
+    </div>
+    <div class="mb-3">
+      <label for="hr_sign" class="form-label" ><b>Hr Sign</b><span class="required">*</span></label>
+      <input class="form-control" type="file" name="hr_sign" required>     
+    </div>
+    <button type="submit" class="btn btn-success" href="{% url 'company' %}"><b>ADD</b></button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>             
+</div></center>
+</div>
+</div>
+{% endblock %}
+
+
+{% block footer_scripts %}
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  $("#company_name").change(function () {
+    var cname = $(this).val();
+
+    $.ajax({
+      url: '/validate_company/',
+      data: {
+        'cname': cname
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          $("#msg").css({"color":"red"});
+               $("#msg").html("This company already exists");
+               $('#company_name').focus();
+               $("#company_name").val(""); 
+        }
+        else
+               {
+               $("#msg").css({"color":"green"});
+               $("#msg").html("Congrates company available !"); 
+               }
+      }
+    });
+
+  });
+  
+</script>
+
+
+{% endblock %}
+
+

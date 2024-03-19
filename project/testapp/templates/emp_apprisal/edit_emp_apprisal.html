@@ -1,0 +1,52 @@
+{% extends 'testapp/index.html' %}
+
+{% load widget_tweaks %}
+
+
+
+{% block content %}
+<div class="container" style="width: 65%; height: 70%">
+    <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+      <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Employee Apprisal</h3></div><br>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <div class="row">
+          <div class="col-md">
+              
+              <div class="form-group mb-3">
+                  <label for="employee_name" class="control-label">Employee Name</label>
+                  {% render_field form.employee_name class="form-control" placeholder="employee_name" %}   
+                  
+              </div>
+              <div class="form-group mb-3">
+                  <label for="position_id.pname" class="control-label">Position Name</label>
+                  {% render_field form.position_id class="form-control" placeholder="position_id" %}  
+                  
+              </div>
+              <div class="form-group mb-3">
+                  <label for="salary_structure.salary_structre" class="control-label">Position Name</label>
+                  {% render_field form.salary_structure class="form-control" placeholder="position_id" %}  
+                  
+              </div>
+              
+              
+
+              <div class="form-group mb-3">
+                  <label for="appraisal_date" class="control-label">Appraisal Date</label>
+                  
+                  {% render_field form.appraisal_date class="form-control" placeholder="appraisal date" type="date" %}    
+              </div>
+              <div class="form-group mb-3">
+                  <label for="efective_from" class="control-label">Efective From</label>
+                  {% render_field form.efective_from class="form-control" placeholder="Efective From" type="date" %}    
+              </div>
+
+              
+        <button type="submit" value="Update" class="btn btn-primary" href="{% url 'emp_apprisal' %}">UPDATE</button>
+    </form>
+    </div>
+    </div>
+
+{% endblock %}
+

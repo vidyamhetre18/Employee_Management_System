@@ -1,0 +1,56 @@
+{% extends 'testapp/index.html' %}
+
+
+{% block content %}
+<div class="container" style="width: 50%; ">
+  <div class="card shadow-grey border-10 rounded-lg mt-4" style="padding: 5px;background-color:#51ade6">
+    <div class="card-header" style="background-color:#eff5fa"><h3 class="text-center font-weight-light my-4">Leaves</h3></div><br>
+<form method="POST"  action="{% url 'add_leaves' %}">
+     {% csrf_token %}
+     
+
+     <center><div class="container">
+      <div class="mb-3">
+        <label for="employee_name" class="form-row errors field-c" ><b>Employee-Name</b><span class="required">*</span></label>
+        <select name="employee_name" id="employee_name" class="form-select form-select-sm rounded-0" required>
+          <option >Please Select Employee</option>
+          {% for e in emp %}
+          
+              <option value="{{e.id}}">{{ e.firstname }}</option>
+             
+          {% endfor %}
+  
+      </select>
+      </div>
+      <div class="mb-3">
+        <label for="leave_name" class="form-row errors field-cname" ><b>Leave-Name</b><span class="required">*</span></label>
+        <input class="form-control" type="text" name="leave_name" value="" required {{leave.leave_name}}>
+        
+        <!-- <select name="leave_name" id="leave_name" class="form-select form-select-sm rounded-0" required>
+          <option >Please Select Leave name</option>
+          {% for lev in leave %}
+          
+              <option value="{{lev.id}}">{{ lev.leave_name }}</option>
+             
+          {% endfor %}
+  
+      </select> -->
+      </div>
+      <div class="mb-3">
+        <label for="from_date" class="form-label"><b>from Date</b><span class="required">*</span></label>
+        <input class="form-control" type="date" name="from_date" required >     
+        
+      </div>
+      <div class="mb-3">
+        <label for="to_date" class="form-label" ><b>to_date</b><span class="required">*</span></label>
+        <input class="form-control" type="date" name="to_date" required>     
+      </div>
+    
+
+      <button type="submit" class="btn btn-success" href=""><b>ADD</b></button>
+      <button type="reset" class="btn btn-danger">Reset</button>
+    </form>             
+  </div></center>
+  </div>
+  </div>
+  {% endblock %}

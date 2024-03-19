@@ -1,0 +1,32 @@
+<option value="">---------</option>
+{% for r in region %}      
+<option value="{{r.id}}">{{ r.region }}</option>   
+{% endfor %}
+
+
+
+
+{% block footer_scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#country_name").change(function () {
+      var url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+      var country_name = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: '/load-cities/',                  // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'country': country_name       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#region_id").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+
+
+
+    // alert("I am an alert box!");
+  </script>
+  {% endblock %}
